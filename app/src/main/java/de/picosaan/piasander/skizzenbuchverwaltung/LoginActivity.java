@@ -237,10 +237,7 @@ public class LoginActivity extends AppCompatActivity implements
 
 
     private void startSketchbookActvity() {
-
-        Toast.makeText(LoginActivity.this, getResources().getString(R.string.auth_success),
-                Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(this, DatabaseActivity.class));
+        startActivity(new Intent(this, ShowBuecherActivity.class));
     }
 
 

@@ -9,4 +9,12 @@
     <string name="auth_failed">Anmeldung fehlgeschlagen</string>
     <string name="auth_success">Anmeldung erfolgreich</string>
 
+    <!-- Bücher Liste -->
+    <string name="alle_buecher">Alle Bücher</string>
+    <string name="neues_buch">Neues Buch anlegen</string>
+    <string name="name">Name</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="no_name">Kein Name angegeben!</string>
+
 </resources>
