@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "256383817889",
+    "firebase_url": "https://skizzenbuecher.firebaseio.com",
+    "project_id": "skizzenbuecher",
+    "storage_bucket": "skizzenbuecher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256383817889:android:c3eeeaf074e63b9a",
+        "android_client_info": {
+          "package_name": "de.picosaan.piasander.skizzenbuchverwaltung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256383817889-314cu1rb9610jnarq93erh7p5de3ef2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "de.picosaan.piasander.skizzenbuchverwaltung",
+            "certificate_hash": "4f96e8eee7c399ee470f84a7e335546cebae2705"
+          }
+        },
+        {
+          "client_id": "256383817889-n3bmsn626qoh3mclf3gqcq4d00gikr6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7GDnwkowzfcXwjwmssjKT6mj9zlQv1WA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256383817889-n3bmsn626qoh3mclf3gqcq4d00gikr6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
