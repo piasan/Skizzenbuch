@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Skizzenbuchverwaltung</string>
+
+    <!-- Sign-in status messages -->
+    <string name="loading">Lade…</string>
+    <string name="signing_in">Anmelden…</string>
+    <string name="signing_out">Abmelden…</string>
+    <string name="sign_out">Abmelden</string>
+    <string name="auth_failed">Anmeldung fehlgeschlagen</string>
+    <string name="auth_success">Anmeldung erfolgreich</string>
+
 </resources>
