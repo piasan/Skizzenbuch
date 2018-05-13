@@ -6,17 +6,15 @@ public class Skizzenbuch {
     private String name;
     private long seitenzahl;
     private long start_datum;
-    private long start_seitenzahl;
     private long aktuelle_seitenzahl;
     private long deadline;
 
 
-    public Skizzenbuch(String buch_id, String name, long seitenzahl, long start_datum, long start_seitenzahl, long deadline) {
-        this.buch_id = buch_id;
+    public Skizzenbuch(String name, long seitenzahl, long start_datum, long aktuelle_seitenzahl, long deadline) {
         this.name = name;
         this.seitenzahl = seitenzahl;
         this.start_datum = start_datum;
-        this.start_seitenzahl = start_seitenzahl;
+        this.aktuelle_seitenzahl = aktuelle_seitenzahl;
         this.deadline = deadline;
     }
 
@@ -35,10 +33,6 @@ public class Skizzenbuch {
 
     public long getStart_datum() {
         return start_datum;
-    }
-
-    public long getStart_seitenzahl() {
-        return start_seitenzahl;
     }
 
     public  long getAktuelle_seitenzahl(){
@@ -64,10 +58,6 @@ public class Skizzenbuch {
 
     public void setStart_datum(long start_datum) {
         this.start_datum = start_datum;
-    }
-
-    public void setStart_seitenzahl(long start_seitenzahl) {
-        this.start_seitenzahl = start_seitenzahl;
     }
 
     public  void setAktuelle_seitenzahl(long aktuelle_seitenzahl){

@@ -12,9 +12,18 @@
     <!-- Bücher Liste -->
     <string name="alle_buecher">Alle Bücher</string>
     <string name="neues_buch">Neues Buch anlegen</string>
-    <string name="name">Name</string>
+    <string name="name">Name: </string>
+    <string name="seitenzahl">Seitenzahl: </string>
+
+    <!-- Allgemein -->
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
+
+    <!-- Warnungen -->
     <string name="no_name">Kein Name angegeben!</string>
+    <string name="seitenAktuell">Seiten aktuell</string>
+    <string name="von">von</string>
+    <string name="aktuellGefuellt">Seiten aktuell gefüllt</string>
+
 
 </resources>

@@ -11,27 +11,80 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/bookName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/name" />
 
-        <EditText
-            android:id="@+id/editBookName"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/bookName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/name" />
+
+            <EditText
+                android:id="@+id/editBookName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/border_light"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/seitenzahl"
+                android:layout_gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_light"
-            android:inputType="textPersonName"
-            android:padding="5dp" />
+            android:orientation="horizontal"
+            android:layout_gravity="end">
+
+            <EditText
+                android:id="@+id/editAktuelleSeiten"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:background="@drawable/border_light"
+                android:padding="5dp"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/von"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/editSeitenGesamt"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:background="@drawable/border_light"
+                android:padding="5dp"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/aktuellGefuellt"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:paddingTop="10dp">
 
             <Button
                 android:id="@+id/ok_button"

@@ -92,9 +92,6 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
 
-            //case xy:
-            // bla;
-            //break;
         }
     }
 
@@ -124,12 +121,17 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
                 if (resultCode == RESULT_OK) {
 
                     String bookName = data.getStringExtra("BOOK_NAME");
+                    long seitenAktuell = data.getLongExtra("SEITEN_AKTUELL", 0);
+                    long seitenGesamt = data.getLongExtra("SEITEN_GESAMT", 0);
+                    long date = System.currentTimeMillis();
+
+                    Skizzenbuch buch = new Skizzenbuch(bookName, seitenGesamt, date, seitenAktuell, 0);
+
+                    db.CreateNewBook(buch);
 
                 }
 
-
         }
-
 
     }
 }

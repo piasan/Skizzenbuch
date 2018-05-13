@@ -20,4 +20,12 @@ public class Database {
         mDatabase = database.getReference();
 
     }
+
+    public void CreateNewBook(Skizzenbuch buch) {
+
+        String userID = user.getUid();
+
+        mDatabase.child("User-" + userID).push().setValue(buch);
+
+    }
 }
