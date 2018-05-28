@@ -9,6 +9,9 @@ public class Skizzenbuch {
     private long aktuelle_seitenzahl;
     private long deadline;
 
+    //Default Constructor
+    public Skizzenbuch() {
+    }
 
     public Skizzenbuch(String name, long seitenzahl, long start_datum, long aktuelle_seitenzahl, long deadline) {
         this.name = name;

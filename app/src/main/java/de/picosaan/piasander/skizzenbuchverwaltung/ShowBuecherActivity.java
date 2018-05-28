@@ -9,6 +9,14 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class ShowBuecherActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -16,13 +24,15 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
     private final static String TAG = "ShowBuecherActivity";
     private final static int NEW_BOOK_REQUEST_CODE = 1;
 
-    private Database db;
     private ArrayList<Skizzenbuch> buecher;
 
     private BuecherAdapter buecherAdapter;
 
     private LinearLayout loadingLayout;
     private ListView listView;
+
+    private DatabaseReference mDatabase;
+    private FirebaseUser user;
 
 
     @Override
@@ -37,9 +47,16 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
         //LoadingLayout
         loadingLayout = (LinearLayout) findViewById(R.id.loadingLayout);
 
-        db = new Database();
+        // Current Firebase User
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Get an instance of the database
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference();
 
         buecher = new ArrayList<>();
+        buecher.add(new Skizzenbuch("Test", 100, 1234567890, 20, 2859459));
+        buecher.add(new Skizzenbuch("Test2", 100, 1234567890, 20, 2859459));
 
     }
 
@@ -54,18 +71,52 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(buecherAdapter);
         listView.setOnItemClickListener(this);
+        listView.setVisibility(View.VISIBLE);
 
-        if (buecher.size() > 0) {
-            buecherAdapter.notifyDataSetChanged();
-        } else {
-            loadingLayout.setVisibility(View.VISIBLE);
-        }
+        loadingLayout.setVisibility(View.VISIBLE);
+
+        getBuecherListe();
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+
+    }
+
+
+    public void getBuecherListe(){
+
+        buecherAdapter.clear();
+        buecher.clear();
+
+        String userID = user.getUid();
+
+        mDatabase.child("User-"+userID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    Skizzenbuch buch = snapshot.getValue(Skizzenbuch.class);
+
+                    buecher.add(buch);
+                }
+
+                loadingLayout.setVisibility(View.GONE);
+                buecherAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+
+        });
 
     }
 
@@ -127,7 +178,9 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
 
                     Skizzenbuch buch = new Skizzenbuch(bookName, seitenGesamt, date, seitenAktuell, 0);
 
-                    db.CreateNewBook(buch);
+                    String userID = user.getUid();
+
+                    mDatabase.child("User-" + userID).push().setValue(buch);
 
                 }
 
