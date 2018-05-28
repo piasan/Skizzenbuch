@@ -51,7 +51,9 @@ class BuecherAdapter extends ArrayAdapter<Skizzenbuch>{
         }
 
         viewHolder.name.setText(buch.getName());
-        viewHolder.progress.setProgress((int)(buch.getAktuelle_seitenzahl() / buch.getSeitenzahl()));
+
+        int progress = (int)(buch.getAktuelle_seitenzahl()*100 / buch.getSeitenzahl());
+        viewHolder.progress.setProgress(progress);
         // Return the completed view to render on screen
         return convertView;
     }

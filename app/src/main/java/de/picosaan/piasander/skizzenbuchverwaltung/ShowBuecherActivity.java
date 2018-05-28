@@ -55,9 +55,6 @@ public class ShowBuecherActivity extends AppCompatActivity implements View.OnCli
         mDatabase = database.getReference();
 
         buecher = new ArrayList<>();
-        buecher.add(new Skizzenbuch("Test", 100, 1234567890, 20, 2859459));
-        buecher.add(new Skizzenbuch("Test2", 100, 1234567890, 20, 2859459));
-
     }
 
 
